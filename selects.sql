@@ -1,10 +1,26 @@
 --
--- File generated with SQLiteStudio v3.1.1 on qua mai 17 20:11:14 2017
+-- File generated with SQLiteStudio v3.1.1 on qua mai 17 20:22:47 2017
 --
 -- Text encoding used: UTF-8
 --
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
+
+-- View: Average Restaurant Stay Time
+CREATE VIEW [Average Restaurant Stay Time] AS
+    SELECT RestaurantName,
+           AVG(StayTime) AS AverageStayTime
+      FROM (
+               SELECT Restaurant.Name AS RestaurantName,
+                      (RTransaction.Time - ROrder.Time) AS StayTime
+                 FROM Restaurant,
+                      ROrder,
+                      RTransaction
+                WHERE ROrder.RTransaction = RTransaction.ID AND 
+                      ROrder.Restaurant = Restaurant.ID
+           )
+     GROUP BY RestaurantName;
+
 
 -- View: Beverage  most ordered by restaurant
 CREATE VIEW [Beverage  most ordered by restaurant] AS
