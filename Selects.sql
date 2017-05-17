@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.1.1 on qua mai 17 11:44:45 2017
+-- File generated with SQLiteStudio v3.1.1 on qua mai 17 12:25:19 2017
 --
 -- Text encoding used: UTF-8
 --
@@ -49,13 +49,24 @@ CREATE VIEW [Cook's specialties] AS
 -- View: Most commom table for client
 CREATE VIEW [Most commom table for client] AS
     SELECT Client.Name,
-           ROrder.TableID AS numTable
-      FROM ROrder,
-           RTable,
-           Client
-     WHERE ROrder.TableID = RTable.ID AND 
-           ROrder.Client = Client.FiscalNum
-     ORDER BY numTable DESC;
+           ROrder.TableID,
+           ROrder.Restaurant,
+           MAX(cnt) AS Frequency
+      FROM (
+               SELECT Client.Name,
+                      ROrder.TableID,
+                      ROrder.Restaurant,
+                      COUNT( * ) AS cnt
+                 FROM ROrder,
+                      RTable,
+                      Client
+                WHERE ROrder.TableID = RTable.ID AND 
+                      ROrder.Restaurant = RTable.Restaurant AND 
+                      ROrder.Client = Client.FiscalNum
+                GROUP BY Client.Name,
+                         ROrder.TableID
+           )
+     GROUP BY Name;
 
 
 -- View: Restaurant Expense
