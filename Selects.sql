@@ -1,25 +1,31 @@
 --
--- File generated with SQLiteStudio v3.1.1 on qua mai 17 19:59:33 2017
+-- File generated with SQLiteStudio v3.1.1 on qua mai 17 20:11:14 2017
 --
 -- Text encoding used: UTF-8
 --
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- View: Beverage and dish most ordered by restaurant
-CREATE VIEW [Beverage and dish most ordered by restaurant] AS
-    SELECT Restaurant.Name AS RestaurantName,
-           Beverage.Name AS BeverageName,
-           Count( * ) AS cnt
-      FROM Restaurant,
-           Beverage,
-           OrderBeverage,
-           ROrder
-     WHERE OrderBeverage.Beverage = Beverage.ID AND 
-           OrderBeverage.ROrder = ROrder.ID AND 
-           ROrder.Restaurant = Restaurant.ID
-     GROUP BY Restaurant.Name,
-              Beverage.Name;
+-- View: Beverage  most ordered by restaurant
+CREATE VIEW [Beverage  most ordered by restaurant] AS
+    SELECT RestaurantName,
+           BeverageName,
+           MAX(cnt) AS MaxBought
+      FROM (
+               SELECT Restaurant.Name AS RestaurantName,
+                      Beverage.Name AS BeverageName,
+                      Count( * ) AS cnt
+                 FROM Restaurant,
+                      Beverage,
+                      OrderBeverage,
+                      ROrder
+                WHERE OrderBeverage.Beverage = Beverage.ID AND 
+                      OrderBeverage.ROrder = ROrder.ID AND 
+                      ROrder.Restaurant = Restaurant.ID
+                GROUP BY Restaurant.Name,
+                         Beverage.Name
+           )
+     GROUP BY RestaurantName;
 
 
 -- View: Client allergic to dishes
