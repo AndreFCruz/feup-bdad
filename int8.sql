@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Restaurant Expense';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 

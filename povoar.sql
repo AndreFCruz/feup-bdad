@@ -241,7 +241,7 @@ insert into Dish values (12, "Pudim de Coco", "Pudim de Coco com molho de carame
 insert into Dish values (13, "Medalhões de Porco", "Medalhões de Porco com molho de cebola e gratinado de batata", 21.00, 1, 563657335);
 insert into Dish values (14, "Entrecosta Argentino", "Entrecosto de bife argentino com feijão preto e puré de maça", 30.00, 1, 238924873);
 insert into Dish values (15, "Lombinho Doce", "Batatas com salsa criolla e alcaparras", 18.50, 1, 720190488);
-insert into Dish values (16, "Entrecosta Argentino", "Lombinho de Porco assado lentamente com mel, acompanhado com puré de pêra", 30.00, 1, 329034834);
+insert into Dish values (16, "Lombinho de Mel", "Lombinho de Porco assado lentamente com mel, acompanhado com puré de pêra", 30.00, 1, 329034834);
 insert into Dish values (17, "Salada Rosada", "Salada de vagem com tartare de tomate", 8.50, 4, 563657335);
 insert into Dish values (18, "Risoto de Cogumelos", "Risoto de Cogumelos assados com salsa e arroz", 19.00, 2, 193473647);
 
@@ -364,14 +364,14 @@ insert into OrderDish values (14, 14);
 insert into OrderDish values (13, 13);
 
 -- Values for Allergy
-insert into Allergy values (234801012, 11);
+insert into Allergy values (234801012, 20);
 insert into Allergy values (234801012, 12);
-insert into Allergy values (234801012, 13);
+insert into Allergy values (234801012, 3);
 insert into Allergy values (234801012, 14);
-insert into Allergy values (234801012, 15);
+insert into Allergy values (234801012, 4);
 insert into Allergy values (119828341, 12);
-insert into Allergy values (734734321, 12);
-insert into Allergy values (498984834, 12);
+insert into Allergy values (734734321, 7);
+insert into Allergy values (498984834, 8);
 insert into Allergy values (498984834, 17);
 
 -- Values for Specialty

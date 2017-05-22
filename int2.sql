@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Beverage  most ordered by restaurant';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 

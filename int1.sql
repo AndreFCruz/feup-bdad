@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Average Restaurant Stay Time';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 

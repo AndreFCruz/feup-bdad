@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Client allergic to dishes';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 

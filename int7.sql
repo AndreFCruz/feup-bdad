@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Most commom table for client';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 

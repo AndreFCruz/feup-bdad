@@ -4,11 +4,13 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Cooks specialties';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
 -- View: Cook's specialties
-CREATE VIEW ["Cook's specialties"] AS
+CREATE VIEW [Cooks specialties] AS
     SELECT DISTINCT Staff.Name AS StaffName,
                     Dish.Name AS DishName
       FROM Specialty,

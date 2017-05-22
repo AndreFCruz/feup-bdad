@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Servers tips rank';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 

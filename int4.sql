@@ -4,6 +4,8 @@
 
 .nullvalue	NULL
 
+DROP VIEW if exists 'Clients total transaction';
+
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
