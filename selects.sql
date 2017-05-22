@@ -169,5 +169,53 @@ CREATE VIEW [Servers tips rank] AS
      ORDER BY Server.Tips DESC;
 
 
+-- View: Chef with most allergic cooks, for client
+CREATE VIEW [Clients Allergenic Chef] AS
+    SELECT ClientName,
+           MAX(StaffName) as Chef
+      FROM (
+               SELECT Client.Name AS ClientName,
+                      Staff.Name AS StaffName,
+                      COUNT(*)
+                 FROM Client,
+                      Allergy,
+                      Contains,
+                      Dish,
+                      Chef,
+                      Staff
+                WHERE Client.FiscalNum = Allergy.Client AND 
+                      Allergy.Ingredient = Contains.Ingredient AND
+                      Contains.Dish = Dish.ID AND
+                      Dish.Author = Chef.FiscalNum AND
+                      Chef.FiscalNum = Staff.FiscalNum
+                GROUP BY  Client.Name,
+                          Staff.Name
+           )
+     GROUP BY ClientName;
+
+
+-- View: Client Average Amount Spent
+CREATE VIEW [Client Average Amount Spent] AS
+    SELECT ClientName,
+           RestaurantName,
+           AVG(Amount) as AverageAmount
+      FROM (
+               SELECT Client.Name AS ClientName,
+                      Restaurant.Name AS RestaurantName,
+                      RTransaction.Amount AS Amount
+                 FROM Client,
+                      ROrder,
+                      Restaurant,
+                      RTransaction
+                WHERE Client.FiscalNum = ROrder.Client AND
+                      ROrder.Restaurant = Restaurant.ID AND
+                      ROrder.RTransaction = RTransaction.ID
+                ORDER BY  ClientName,
+                          RestaurantName
+           )
+     GROUP BY ClientName,
+              RestaurantName;
+
+              
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;

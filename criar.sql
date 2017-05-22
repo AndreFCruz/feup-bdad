@@ -81,7 +81,7 @@
 		Restaurant REFERENCES Restaurant (ID) NOT NULL
 	);
 
-	-- Table: Server
+	-- Table: 	
 	CREATE TABLE Server (
 		FiscalNum PRIMARY KEY REFERENCES Staff (FiscalNum), 
 		Tips INTEGER DEFAULT (0)
