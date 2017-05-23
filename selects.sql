@@ -194,6 +194,20 @@ CREATE VIEW [Clients Allergenic Chef] AS
      GROUP BY ClientName;
 
 
+-- View: Server Tips for Client & Order
+CREATE VIEW [Server Tips for Client & Order] AS
+      SELECT Staff.Name AS StaffName,
+            (Server.Tips / COUNT(ROrder.ID)) AS AverageTip 
+       FROM Server,
+            Staff,
+            Responsible,
+            ROrder
+      WHERE Server.FiscalNum = Staff.FiscalNum AND
+            Server.FiscalNum = Responsible.Server AND
+            Responsible.TableID = ROrder.TableID AND
+            Responsible.Restaurant = ROrder.Restaurant
+      GROUP BY  Staff.Name;
+
 -- View: Client Average Amount Spent
 CREATE VIEW [Client Average Amount Spent] AS
     SELECT ClientName,
@@ -216,6 +230,18 @@ CREATE VIEW [Client Average Amount Spent] AS
      GROUP BY ClientName,
               RestaurantName;
 
-              
+
+-- View: Chef Average Description Size
+CREATE VIEW [Chef Average Description Size] AS
+     SELECT Staff.Name AS ChefName
+       FROM Chef,
+            Dish,
+            Staff
+      WHERE Chef.FiscalNum = Dish.Author AND
+            Chef.FiscalNum = Staff.FiscalNum
+      GROUP BY  Chef.FiscalNum
+      ORDER BY  AVG(LENGTH(Dish.Description)) DESC;
+
+
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;
