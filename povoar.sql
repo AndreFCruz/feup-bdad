@@ -371,6 +371,8 @@ insert into Allergy values (234801012, 14);
 insert into Allergy values (234801012, 4);
 insert into Allergy values (119828341, 12);
 insert into Allergy values (734734321, 7);
+insert into Allergy values (734734321, 8);
+insert into Allergy values (734734321, 9);
 insert into Allergy values (498984834, 8);
 insert into Allergy values (498984834, 17);
 
