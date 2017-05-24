@@ -67,7 +67,7 @@
 		TableID INTEGER NOT NULL,
 		Restaurant REFERENCES Restaurant (ID) NOT NULL,
 		Client REFERENCES Client (FiscalNum) NOT NULL, 
-		RTransaction REFERENCES RTransaction (ID) NOT NULL,
+		RTransaction REFERENCES RTransaction (ID),
 		FOREIGN KEY (TableID, Restaurant) REFERENCES RTable(ID, Restaurant), 
 		CONSTRAINT RepeatedOrd UNIQUE (Date, Time, Client)
 	);
