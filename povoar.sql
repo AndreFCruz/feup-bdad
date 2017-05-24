@@ -87,54 +87,76 @@ insert into ReservedTable values (17, 3, 1);
 insert into ReservedTable values (18, 4, 1);
 insert into ReservedTable values (19, 9, 2);
 
+-- VALUES for Orders
+INSERT INTO ROrder VALUES (1, '2017-02-17', '19:05', 1, 1, 823471623, NULL);
+INSERT INTO ROrder VALUES (2, '2017-02-21', '15:05', 1, 1, 823471623, NULL);
+INSERT INTO ROrder VALUES (3, '2017-02-27', '15:00', 1, 1, 112123112, NULL);
+INSERT INTO ROrder VALUES (4, '2017-03-04', '20:10', 1, 1, 923408990, NULL);
+INSERT INTO ROrder VALUES (5, '2017-03-10', '20:05', 2, 1, 823457823, NULL);
+INSERT INTO ROrder VALUES (6, '2017-03-11', '20:05', 1, 1, 123923402, NULL);
+INSERT INTO ROrder VALUES (7, '2017-03-12', '20:05', 2, 1, 120080234, NULL);
+INSERT INTO ROrder VALUES (8, '2017-03-12', '20:05', 3, 1, 234332421, NULL);
+INSERT INTO ROrder VALUES (9, '2017-03-12', '20:00', 4, 1, 923408990, NULL);
+INSERT INTO ROrder VALUES (10, '2017-03-12', '19:05', 5, 1, 325012412, NULL);
+INSERT INTO ROrder VALUES (11, '2017-03-12', '12:05', 7, 2, 234862398, NULL);
+INSERT INTO ROrder VALUES (12, '2017-03-26', '11:05', 8, 2, 234862398, NULL);
+INSERT INTO ROrder VALUES (13, '2017-03-27', '20:15', 9, 2, 923408990, NULL);
+INSERT INTO ROrder VALUES (14, '2017-04-01', '20:05', 13, 4, 234862398, NULL);
+INSERT INTO ROrder VALUES (15, '2017-04-01', '20:20', 12, 4, 234862398, NULL);
+INSERT INTO ROrder VALUES (16, '2017-04-01', '14:30', 15, 4, 234763472, NULL);
+INSERT INTO ROrder VALUES (17, '2017-04-01', '12:05', 14, 4, 325012412, NULL);
+INSERT INTO ROrder VALUES (18, '2017-04-02', '23:42', 16, 4, 873246102, NULL);
+INSERT INTO ROrder VALUES (19, '2017-04-02', '20:05', 15, 4, 234763472, NULL);
+INSERT INTO ROrder VALUES (20, '2017-04-02', '21:05', 13, 4, 234862398, NULL);
+INSERT INTO ROrder VALUES (21, '2017-04-04', '20:05', 13, 4, 234862398, NULL);
+INSERT INTO ROrder VALUES (22, '2017-04-04', '21:00', 13, 4, 234862398, NULL);
+
+
 -- Values for Restaurant Transactions
 insert into RTransaction values (1, 80.45, '2017-02-17', '20:03', 823471623);
-insert into RTransaction values (2, 115.23, '2017-02-21', '13:44', 823471623);
-insert into RTransaction values (3, 93.12, '2017-02-27', '14:23', NULL);
-insert into RTransaction values (4, 156.99, '2017-02-27', '21:01', 923408990);
-insert into RTransaction values (5, 387.46, '2017-03-01', '20:56', 823457823);
-insert into RTransaction values (6, 48.20, '2017-03-01', '22:13', 123923402);
-insert into RTransaction values (7, 84.34, '2017-03-04', '22:34', 120080234);
-insert into RTransaction values (8, 193.86, '2017-03-05', '20:59', 234332421);
-insert into RTransaction values (9, 183.23, '2017-03-07', '21:08', 923408990);
-insert into RTransaction values (10, 95.08, '2017-03-07', '19:57', 325012412);
-insert into RTransaction values (11, 94.12, '2017-03-07', '20:32', NULL);
-insert into RTransaction values (12, 12.50, '2017-03-08', '13:29', NULL);
-insert into RTransaction values (13, 284.85, '2017-03-09', '12:41', 663246232);
-insert into RTransaction values (14, 342.34, '2017-03-15', '13:23', 119828341);
-insert into RTransaction values (15, 193.12, '2017-03-19', '14:45', 823457823);
-insert into RTransaction values (16, 34.12, '2017-03-20', '15:10', 234763472);
-insert into RTransaction values (17, 12.50, '2017-03-21', '13:30', 325012412);
-insert into RTransaction values (18, 110.00, '2017-03-24', '20:17', 873246102);
-insert into RTransaction values (19, 64.28, '2017-03-24', '21:49', 234763472);
-insert into RTransaction values (20, 25.00, '2017-03-28', '13:17', NULL);
-insert into RTransaction values (21, 12.50, '2017-03-30', '12:38', 234862398);
-insert into RTransaction values (22, 85.23, '2017-03-31', '20:51', NULL);
+insert into RTransaction values (2, 115.23, '2017-02-21', '15:44', 823471623);
+insert into RTransaction values (3, 93.12, '2017-02-27', '16:23', NULL);
+insert into RTransaction values (4, 156.99, '2017-03-04', '21:01', 923408990);
+insert into RTransaction values (5, 387.46, '2017-03-10', '20:56', 823457823);
+insert into RTransaction values (6, 48.20, '2017-03-11', '22:13', 123923402);
+insert into RTransaction values (7, 84.34, '2017-03-12', '22:34', 120080234);
+insert into RTransaction values (8, 193.86, '2017-03-12', '20:59', 234332421);
+insert into RTransaction values (9, 183.23, '2017-03-12', '21:08', 923408990);
+insert into RTransaction values (10, 95.08, '2017-03-12', '19:57', 325012412);
+insert into RTransaction values (11, 94.12, '2017-03-12', '16:32', NULL);
+insert into RTransaction values (12, 12.50, '2017-03-26', '13:29', NULL);
+insert into RTransaction values (13, 284.85, '2017-03-27', '22:41', 663246232);
+insert into RTransaction values (14, 342.34, '2017-04-02', '01:23', 119828341);
+insert into RTransaction values (15, 193.12, '2017-04-01', '23:45', 823457823);
+insert into RTransaction values (16, 34.12, '2017-04-01', '15:10', 234763472);
+insert into RTransaction values (17, 12.50, '2017-04-01', '13:30', 325012412);
+insert into RTransaction values (18, 110.00, '2017-04-03', '00:17', 873246102);
+insert into RTransaction values (19, 64.28, '2017-04-02', '21:49', 234763472);
+insert into RTransaction values (20, 25.00, '2017-04-02', '22:17', NULL);
+insert into RTransaction values (21, 12.50, '2017-04-04', '21:38', 234862398);
 
-
--- VALUES for Orders
-INSERT INTO ROrder VALUES (1, '2017-02-17', '21:05', 1, 1, 823471623, 1);
-INSERT INTO ROrder VALUES (2, '2017-02-21', '15:05', 1, 1, 823471623, 2);
-INSERT INTO ROrder VALUES (3, '2017-02-27', '15:00', 1, 1, 112123112, 3);
-INSERT INTO ROrder VALUES (4, '2017-03-04', '20:10', 1, 1, 923408990, 3);
-INSERT INTO ROrder VALUES (5, '2017-03-10', '20:05', 2, 1, 823457823, 8);
-INSERT INTO ROrder VALUES (6, '2017-03-11', '20:05', 1, 1, 123923402, 4);
-INSERT INTO ROrder VALUES (7, '2017-03-12', '20:05', 2, 1, 120080234, 5);
-INSERT INTO ROrder VALUES (8, '2017-03-12', '20:05', 3, 1, 234332421, 6);
-INSERT INTO ROrder VALUES (9, '2017-03-12', '20:00', 4, 1, 923408990, 7);
-INSERT INTO ROrder VALUES (10, '2017-03-12', '19:05', 5, 1, 325012412, 9);
-INSERT INTO ROrder VALUES (11, '2017-03-12', '21:05', 7, 2, 234862398, 10);
-INSERT INTO ROrder VALUES (12, '2017-03-26', '20:05', 8, 2, 234862398, 11);
-INSERT INTO ROrder VALUES (13, '2017-03-27', '20:15', 9, 2, 923408990, 12);
-INSERT INTO ROrder VALUES (14, '2017-04-01', '20:05', 13, 4, 234862398, 13);
-INSERT INTO ROrder VALUES (15, '2017-04-01', '20:20', 12, 4, 234862398, 14);
-INSERT INTO ROrder VALUES (16, '2017-04-01', '20:30', 15, 4, 234763472, 15);
-INSERT INTO ROrder VALUES (17, '2017-04-01', '20:05', 14, 4, 325012412, 16);
-INSERT INTO ROrder VALUES (18, '2017-04-02', '20:05', 16, 4, 873246102, 17);
-INSERT INTO ROrder VALUES (19, '2017-04-02', '20:05', 15, 4, 234763472, 18);
-INSERT INTO ROrder VALUES (20, '2017-04-02', '21:05', 13, 4, 234862398, 19);
-INSERT INTO ROrder VALUES (21, '2017-04-04', '20:05', 13, 4, 234862398, 20);
-INSERT INTO ROrder VALUES (22, '2017-04-04', '21:00', 13, 4, 234862398, 21);
+--Update Orders with RTransaction Values
+update ROrder set RTransaction = 1 where ID = 1;
+update ROrder set RTransaction = 2 where ID = 2;
+update ROrder set RTransaction = 3 where ID = 3;
+update ROrder set RTransaction = 4 where ID = 4;
+update ROrder set RTransaction = 5 where ID = 5;
+update ROrder set RTransaction = 6 where ID = 6;
+update ROrder set RTransaction = 7 where ID = 7;
+update ROrder set RTransaction = 8 where ID = 8;
+update ROrder set RTransaction = 9 where ID = 9;
+update ROrder set RTransaction = 10 where ID = 10;
+update ROrder set RTransaction = 11 where ID = 11;
+update ROrder set RTransaction = 12 where ID = 12;
+update ROrder set RTransaction = 13 where ID = 13;
+update ROrder set RTransaction = 14 where ID = 14;
+update ROrder set RTransaction = 15 where ID = 15;
+update ROrder set RTransaction = 16 where ID = 16;
+update ROrder set RTransaction = 17 where ID = 17;
+update ROrder set RTransaction = 18 where ID = 18;
+update ROrder set RTransaction = 19 where ID = 19;
+update ROrder set RTransaction = 20 where ID = 20;
+update ROrder set RTransaction = 21 where ID = 21;
 
 
 -- Values for Staff
