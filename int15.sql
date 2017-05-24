@@ -11,11 +11,12 @@ BEGIN TRANSACTION;
 
 -- View: Chef Attributes
 CREATE VIEW ChefView AS
-     SELECT Staff.Name AS ChefName,
-     		Staff.Salary AS ChefSalary,
-     		Staff.PhoneNum AS ChefPhoneNum,
-     		Staff.FiscalNum AS ChefFiscalNum,
-     		Chef.NumMichelinStars AS ChefMichelinStars
+     SELECT Staff.Name AS Name,
+     		Staff.Salary AS Salary,
+     		Staff.PhoneNum AS PhoneNum,
+     		Staff.FiscalNum AS FiscalNum,
+     		Staff.Restaurant AS Restaurant,
+     		Chef.NumMichelinStars AS NumMichelinStars
        FROM Chef,
             Staff
       WHERE Chef.FiscalNum = Staff.FiscalNum
@@ -29,10 +30,12 @@ BEGIN TRANSACTION;
 
 -- View: Cook Attributes
 CREATE VIEW CookView AS
-     SELECT Staff.Name AS CookName,
-     		Staff.Salary AS CookSalary,
-     		Staff.PhoneNum AS CookPhoneNum,
-     		Staff.FiscalNum AS CookFiscalNum
+     SELECT Staff.Name AS Name,
+     		Staff.Salary AS Salary,
+     		Staff.PhoneNum AS PhoneNum,
+     		Staff.FiscalNum AS FiscalNum,
+     		Staff.Restaurant AS Restaurant,
+     		Cook.Chef AS Chef
        FROM Cook,
             Staff
       WHERE Cook.FiscalNum = Staff.FiscalNum
@@ -46,11 +49,12 @@ BEGIN TRANSACTION;
 
 -- View: Server Attributes
 CREATE VIEW ServerView AS
-     SELECT Staff.Name AS ServerName,
-     		Staff.Salary AS ServerSalary,
-     		Staff.PhoneNum AS ServerPhoneNum,
-     		Staff.FiscalNum AS ServerFiscalNum,
-     		Server.Tips AS ServerTips
+     SELECT Staff.Name AS Name,
+     		Staff.Salary AS Salary,
+     		Staff.PhoneNum AS PhoneNum,
+     		Staff.FiscalNum AS FiscalNum,
+     		Staff.Restaurant AS Restaurant,
+     		Server.Tips AS Tips
        FROM Server,
             Staff
       WHERE Server.FiscalNum = Staff.FiscalNum

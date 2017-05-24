@@ -1,11 +1,11 @@
 PRAGMA foreign_keys = on;
 
-DROP TRIGGER InsertOrderDish;
+DROP TRIGGER if exists InsertOrderDish;
 
 BEGIN TRANSACTION;
 
 CREATE TRIGGER InsertOrderDish
-Before insert on ROrder
+Before insert on OrderDish
 For each row
 When exists (SELECT ROrder.Client FROM ROrder, Contains, Allergy WHERE 
 					Allergy.Client = ROrder.Client AND
