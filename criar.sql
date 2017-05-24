@@ -90,7 +90,7 @@
 	-- Table: Chef
 	CREATE TABLE Chef (
 		FiscalNum PRIMARY KEY REFERENCES Staff (FiscalNum), 
-		NumMichellinStars INTEGER DEFAULT (0)
+		NumMichelinStars INTEGER DEFAULT (0)
 	);
 
 	-- Table: Cook
