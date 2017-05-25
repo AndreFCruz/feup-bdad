@@ -1,6 +1,4 @@
 -- Verification of Triggers that enforce Complete and Disjoint Generalization
-	
-.read int15.sql
 
 -- Testing Complete Generalization
 

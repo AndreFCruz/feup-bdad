@@ -1,4 +1,7 @@
-PRAGMA foreign_keys = on;
+PRAGMA foreign_keys = off;
+
+-- Load respective Views
+.read int15.sql
 
 -- Triggers to enforce Complete and Disjoint Generalization
 
@@ -10,8 +13,8 @@ When not exists (SELECT * FROM Server, Cook WHERE
 												New.FiscalNum = Server.FiscalNum OR
 												New.FiscalNum = Cook.FiscalNum)
 BEGIN
-	Insert into Staff values (New.FiscalNum, New.Name, New.Salary, New.PhoneNum, New.Restaurant);
-	Insert into Chef values (New.FiscalNum, New.NumMichelinStars);
+	Insert into Chef (FiscalNum, NumMichelinStars) SELECT New.FiscalNum, New.NumMichelinStars;
+	Insert into Staff (FiscalNum, Name, Salary, PhoneNum, Restaurant) SELECT New.FiscalNum, New.Name, New.Salary, New.PhoneNum, New.Restaurant;
 END;
 
 
@@ -23,8 +26,8 @@ When not exists (SELECT * FROM Server, Chef WHERE
 												New.FiscalNum = Server.FiscalNum OR
 												New.FiscalNum = Chef.FiscalNum)
 BEGIN
-	Insert into Staff values (New.FiscalNum, New.Name, New.Salary, New.PhoneNum, New.Restaurant);
 	Insert into Cook values (New.FiscalNum, New.Chef);
+	Insert into Staff values (New.FiscalNum, New.Name, New.Salary, New.PhoneNum, New.Restaurant);
 END;
 
 DROP TRIGGER if exists InsertServer;
@@ -35,6 +38,6 @@ When not exists (SELECT * FROM Chef, Cook WHERE
 												New.FiscalNum = Chef.FiscalNum OR
 												New.FiscalNum = Cook.FiscalNum)
 BEGIN
-	Insert into Staff values (New.FiscalNum, New.Name, New.Salary, New.PhoneNum, New.Restaurant);
 	Insert into Server values (New.FiscalNum, New.Tips);
+	Insert into Staff values (New.FiscalNum, New.Name, New.Salary, New.PhoneNum, New.Restaurant);
 END;
