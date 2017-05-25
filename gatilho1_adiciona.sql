@@ -6,6 +6,7 @@ PRAGMA foreign_keys = on;
 -- Triggers to enforce Complete and Disjoint Generalization
 
 DROP TRIGGER if exists InsertChef;
+
 CREATE TRIGGER InsertChef
 Instead of insert on ChefView
 For each row
