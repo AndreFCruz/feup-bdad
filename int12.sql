@@ -6,12 +6,12 @@
 
 PRAGMA foreign_keys = off;
 
-DROP VIEW if exists 'Server Tips for Client & Order';
+DROP VIEW if exists 'Server Average Tip for Client';
 
 BEGIN TRANSACTION;
 
 -- View: Server Tips for Client & Order
-CREATE VIEW [Server Tips for Client & Order] AS
+CREATE VIEW [Server Average Tip for Client] AS
       SELECT Staff.Name AS StaffName,
             (Server.Tips / COUNT(ROrder.ID)) AS AverageTip 
        FROM Server,
