@@ -1,3 +1,7 @@
+.mode	columns
+
+.headers	on
+
 -- Trigger that grants that a ROrder's Date and Time is previous to its associated Transaction
 
 SELECT * FROM RTransaction;
