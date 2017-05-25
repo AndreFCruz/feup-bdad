@@ -105,7 +105,7 @@ INSERT INTO ROrder VALUES (14, '2017-04-01', '20:05', 13, 4, 234862398, NULL);
 INSERT INTO ROrder VALUES (15, '2017-04-01', '20:20', 12, 4, 234862398, NULL);
 INSERT INTO ROrder VALUES (16, '2017-04-01', '14:30', 15, 4, 234763472, NULL);
 INSERT INTO ROrder VALUES (17, '2017-04-01', '12:05', 14, 4, 325012412, NULL);
-INSERT INTO ROrder VALUES (18, '2017-04-02', '23:42', 16, 4, 873246102, NULL);
+INSERT INTO ROrder VALUES (18, '2017-04-02', '23:42', 16, 4, 119828341, NULL);
 INSERT INTO ROrder VALUES (19, '2017-04-02', '20:05', 15, 4, 234763472, NULL);
 INSERT INTO ROrder VALUES (20, '2017-04-02', '21:05', 13, 4, 234862398, NULL);
 INSERT INTO ROrder VALUES (21, '2017-04-04', '20:05', 13, 4, 234862398, NULL);
@@ -326,6 +326,7 @@ insert into Contains values (17, 13);
 insert into Contains values (18, 12);
 insert into Contains values (18, 15);
 insert into Contains values (17, 2);
+insert into Contains values (17, 12);
 
 
 -- Values for Responsible
