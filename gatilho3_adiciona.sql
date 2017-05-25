@@ -1,3 +1,5 @@
+-- Trigger that verifies if the Client is allergic to the dish he is ordering.
+
 PRAGMA foreign_keys = on;
 
 DROP TRIGGER if exists InsertOrderDish;
