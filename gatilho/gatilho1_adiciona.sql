@@ -9,14 +9,15 @@ CREATE TRIGGER CheckTableAvailability
 before insert on ReservedTable
 For each row
 When exists
-	(SELECT ReservedTable.TableID FROM ReservedTable, Reservation AS R1, Reservation AS R2
+	(SELECT * FROM ReservedTable AS RT, Reservation AS R1, Reservation AS R2
 	 WHERE
-		New.Reservation = R1.ID AND
-		R1.Time + 1 < R2.Time AND
+		strftime('%H:%M', R1.Time, '+1 hours') > R2.Time AND
+		R1.Time < R2.Time AND
 		R1.Date = R2.Date AND
-		R2.ID = ReservedTable.Reservation AND
-		ReservedTable.TableID = New.TableID AND
-		New.Restaurant = ReservedTable.Restaurant)
+		R2.ID = RT.Reservation AND
+		R1.ID = New.Reservation AND
+		New.TableID = RT.TableID AND
+		R1.Restaurant = R2.Restaurant)
 BEGIN
 	SELECT raise(rollback, 'Reserved table was already booked');
 END;
