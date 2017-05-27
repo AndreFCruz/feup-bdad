@@ -70,7 +70,7 @@ insert into Reservation values (16, '20:45', 4, 3, 234862398, '2017-04-01');
 insert into Reservation values (17, '20:40', 4, 2, 873246102, '2017-04-01');
 insert into Reservation values (18, '12:50', 3, 2, 123923402, '2017-04-01');
 insert into Reservation values (19, '13:15', 3, 2, 234862398, '2017-04-01');
-insert into Reservation values (20, '12:30', 10, 3, 123923402, '2017-04-01');
+insert into Reservation values (20, '23:30', 10, 3, 123923402, '2017-04-01');
 
 -- Values for ReservedTable
 insert into ReservedTable values (1, 10, 4);
