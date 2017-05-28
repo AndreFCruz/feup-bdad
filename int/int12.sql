@@ -4,8 +4,6 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
-
 -- Interrogation: Average Tip per Client served.
 SELECT Staff.Name AS StaffName,
       (Server.Tips / COUNT(ROrder.ID)) AS AverageTip 
@@ -19,5 +17,3 @@ WHERE Server.FiscalNum = Staff.FiscalNum AND
       Responsible.Restaurant = ROrder.Restaurant
 GROUP BY  Staff.Name
 ORDER BY AverageTip DESC;
-
-COMMIT TRANSACTION;
