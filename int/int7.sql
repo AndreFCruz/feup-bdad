@@ -4,32 +4,27 @@
 
 .nullvalue	NULL
 
-DROP VIEW if exists 'Most commom table for client';
-
-PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- View: Most commom table for client
-CREATE VIEW [Most commom table for client] AS
-    SELECT Client.Name,
-           ROrder.TableID,
-           ROrder.Restaurant,
-           MAX(cnt) AS Frequency
-      FROM (
-               SELECT Client.Name,
-                      ROrder.TableID,
-                      ROrder.Restaurant,
-                      COUNT( * ) AS cnt
-                 FROM ROrder,
-                      RTable,
-                      Client
-                WHERE ROrder.TableID = RTable.ID AND 
-                      ROrder.Restaurant = RTable.Restaurant AND 
-                      ROrder.Client = Client.FiscalNum
-                GROUP BY Client.Name,
-                         ROrder.TableID
-           )
-     GROUP BY Name;
+-- Interrogation: Most Common table for client
+SELECT Name,
+       TableID,
+       Restaurant,
+       MAX(cnt) AS Frequency
+  FROM (
+           SELECT Client.Name AS Name,
+                  ROrder.TableID AS TableID,
+                  ROrder.Restaurant AS Restaurant,
+                  COUNT( * ) AS cnt
+             FROM ROrder,
+                  RTable,
+                  Client
+            WHERE ROrder.TableID = RTable.ID AND 
+                  ROrder.Restaurant = RTable.Restaurant AND 
+                  ROrder.Client = Client.FiscalNum
+            GROUP BY Client.Name,
+                     ROrder.TableID
+       )
+ GROUP BY Name;
 
 COMMIT TRANSACTION;
-PRAGMA foreign_keys = on;

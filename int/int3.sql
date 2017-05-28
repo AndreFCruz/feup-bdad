@@ -4,24 +4,21 @@
 
 .nullvalue	NULL
 
-DROP VIEW if exists 'Client allergic to dishes';
-
-PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- View: Client allergic to dishes
-CREATE VIEW [Client allergic to dishes] AS
-    SELECT DISTINCT Client.FiscalNum,
-                    Client.Name,
-                    Dish.Name AS allergicToDish
-      FROM Allergy,
-           Client,
-           Ingredient,
-           Contains,
-           Dish
-     WHERE Allergy.Client = Client.FiscalNum AND 
-           Ingredient.ID = Contains.Ingredient AND 
-           Ingredient.ID = Allergy.Ingredient;
+-- Interrogation: Client allergic to dishes
+SELECT DISTINCT Client.FiscalNum,
+                Client.Name,
+                Dish.Name AS allergicToDish
+  FROM Allergy,
+       Client,
+       Ingredient,
+       Contains,
+       Dish
+ WHERE Allergy.Client = Client.FiscalNum AND 
+       Ingredient.ID = Contains.Ingredient AND 
+       Dish.ID = Contains.Dish AND
+       Ingredient.ID = Allergy.Ingredient
+ORDER BY  Client.Name;
 
 COMMIT TRANSACTION;
-PRAGMA foreign_keys = on;
