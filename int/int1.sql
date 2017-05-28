@@ -9,13 +9,13 @@ DROP VIEW if exists AVERAGE_STAY_TIME;
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- View: Average Restaurant Stay Time
+-- View: Average Restaurant Stay Time, in Minutes
 CREATE VIEW [AVERAGE_STAY_TIME] AS
     SELECT RestaurantName,
            AVG(StayTime) AS AverageStayTime
       FROM (
                SELECT Restaurant.Name AS RestaurantName,
-                      (RTransaction.Time - ROrder.Time + (RTransaction.Date - ROrder.Date) * 24) AS StayTime
+               		  (julianday(RTransaction.Date, RTransaction.Time) - julianday(ROrder.Date, ROrder.Time)) * 24 * 60 AS StayTime
                  FROM Restaurant,
                       ROrder,
                       RTransaction
