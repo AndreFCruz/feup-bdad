@@ -18,6 +18,6 @@ WHERE Server.FiscalNum = Staff.FiscalNum AND
       Responsible.TableID = ROrder.TableID AND
       Responsible.Restaurant = ROrder.Restaurant
 GROUP BY  Staff.Name
-ORDER BY Server.Tips DESC;
+ORDER BY AverageTip DESC;
 
 COMMIT TRANSACTION;

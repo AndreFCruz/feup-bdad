@@ -4,7 +4,7 @@
 
 .nullvalue	NULL
 
-
+-- Interrogation: For each Client, get its most ordered category, and the Restaurant that has more dishes in that category.
 SELECT S1.ClientName,
        S1.Category,
        S2.RestaurantName
