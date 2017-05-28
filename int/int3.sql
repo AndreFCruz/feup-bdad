@@ -4,8 +4,6 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
-
 -- Interrogation: Client allergic to dishes
 SELECT DISTINCT Client.FiscalNum,
                 Client.Name,
@@ -20,5 +18,3 @@ SELECT DISTINCT Client.FiscalNum,
        Dish.ID = Contains.Dish AND
        Ingredient.ID = Allergy.Ingredient
 ORDER BY  Client.Name;
-
-COMMIT TRANSACTION;

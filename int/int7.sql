@@ -4,7 +4,6 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
 
 -- Interrogation: Union of all the people that are related to the Restaurant (Staff + Clients)
 SELECT Client.Name AS Name,
@@ -14,5 +13,3 @@ UNION
 SELECT Staff.Name AS Name,
        Staff.FiscalNum AS FiscalNum
   FROM Staff;
-
-COMMIT TRANSACTION;

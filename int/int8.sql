@@ -4,7 +4,6 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
 
 -- Interrogation: Restaurant's amount expended paying Staff's salaries.
 SELECT Restaurant.Name,
@@ -13,4 +12,3 @@ SELECT Restaurant.Name,
  GROUP BY Restaurant.Name
  ORDER BY Expense DESC;
 
-COMMIT TRANSACTION;

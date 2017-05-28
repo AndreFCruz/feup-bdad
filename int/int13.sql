@@ -4,30 +4,6 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
-
-/*
--- Interrogation: Client Average Amount Spent
-SELECT ClientName,
-       RestaurantName,
-       AVG(Amount) as AverageAmount
-  FROM (
-           SELECT Client.Name AS ClientName,
-                  Restaurant.Name AS RestaurantName,
-                  RTransaction.Amount AS Amount
-             FROM Client,
-                  Restaurant,
-                  ROrder,
-                  RTransaction
-            WHERE ROrder.Restaurant = Restaurant.ID AND
-                  ROrder.RTransaction = RTransaction.ID AND
-                  RTransaction.FiscalNum = Client.FiscalNum
-            ORDER BY  ClientName,
-                      RestaurantName
-       )
- GROUP BY ClientName,
-          RestaurantName;*/
-
 
 SELECT S1.ClientName,
        S1.Category,
@@ -61,5 +37,3 @@ SELECT S1.ClientName,
                  )
           GROUP BY Category) S2
     ON S1.Category = S2.Category);
-
-COMMIT TRANSACTION;

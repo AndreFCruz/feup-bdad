@@ -4,18 +4,16 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
-
--- Interrogation: Restaurant most ordered Beverage and Dish
+-- Interrogation: Restaurant's most ordered Beverage and Dish
 SELECT beverage.RestaurantName AS Restaurant,
        DishName,
-       FrequencyD,
+       DishFrequency,
        BeverageName,
-       FrequencyB
+       BeverageFrequency
   FROM (
             (SELECT RestaurantName,
                    BeverageName,
-                   MAX(BeverageCount) AS FrequencyB
+                   MAX(BeverageCount) AS BeverageFrequency
               FROM (
                        SELECT Restaurant.Name AS RestaurantName,
                               Beverage.Name AS BeverageName,
@@ -36,7 +34,7 @@ SELECT beverage.RestaurantName AS Restaurant,
 
             (SELECT RestaurantName,
                    DishName,
-                   MAX(DishCount) AS FrequencyD
+                   MAX(DishCount) AS DishFrequency
               FROM (
                        SELECT Restaurant.Name AS RestaurantName,
                               Dish.Name AS DishName,
@@ -54,5 +52,3 @@ SELECT beverage.RestaurantName AS Restaurant,
              GROUP BY RestaurantName) dish
 
       ON dish.RestaurantName = beverage.RestaurantName);
-
-COMMIT TRANSACTION;

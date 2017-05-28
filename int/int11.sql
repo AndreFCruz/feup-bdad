@@ -4,9 +4,7 @@
 
 .nullvalue	NULL
 
-BEGIN TRANSACTION;
-
--- Interrogation: Chef with most allergic cooks, for client
+-- Interrogation: Client and the Chef who authors the highest number of dishes the client is allergic to.
 SELECT ClientName,
        MAX(StaffName) as Chef
   FROM (
@@ -28,5 +26,3 @@ SELECT ClientName,
                       Staff.Name
        )
  GROUP BY ClientName;
-
-COMMIT TRANSACTION;

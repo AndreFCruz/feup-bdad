@@ -6,7 +6,6 @@
 
 PRAGMA foreign_keys = on;
 
-BEGIN TRANSACTION;
 
 -- Interrogation: Average Restaurant Stay Time, in Minutes
 SELECT RestaurantName,
@@ -21,5 +20,3 @@ SELECT RestaurantName,
                   ROrder.Restaurant = Restaurant.ID
        )
  GROUP BY RestaurantName;
-
-COMMIT TRANSACTION;
