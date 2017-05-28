@@ -32,7 +32,7 @@ SELECT beverage.RestaurantName AS Restaurant,
                    )
              GROUP BY RestaurantName ) beverage
 
-             JOIN 
+        JOIN 
 
             (SELECT RestaurantName,
                    DishName,

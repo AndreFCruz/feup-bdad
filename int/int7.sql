@@ -6,7 +6,7 @@
 
 BEGIN TRANSACTION;
 
--- Interrogation: Union of all the people that is related to the Restaurant (Staff + Clients)
+-- Interrogation: Union of all the people that are related to the Restaurant (Staff + Clients)
 SELECT Client.Name AS Name,
        Client.FiscalNum AS FiscalNum
   FROM Client
