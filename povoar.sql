@@ -171,7 +171,6 @@ insert into Staff values (239824893, "Joana Lopes", 550, 938746912, 1);
 insert into Staff values (544235355, "António Godinho", 550, 920034756, 4);
 insert into Staff values (593772344, "Bran Sanderson", 600, 910234466, 3);
 insert into Staff values (876236246, "Laura Semedo", 700, 924734437, 4);
-insert into Staff values (626393332, "Ivan Popov", 700, 965734998, 1);
 insert into Staff values (112324744, "Alyssa Ponte", 600, 912003234, 3);
 insert into Staff values (193473647, "Jéssica Rosa", 800, 911137237, 2);
 insert into Staff values (238924873, "Afonso João", 950, 966874656, 3);
@@ -185,7 +184,7 @@ insert into Staff values (716263623, "Wilson Born", 550, 968734734, 1);
 insert into Staff values (130023818, "Maria Caiado", 600, 966126122, 2);
 insert into Staff values (762461372, "Alexandra Gaio", 550, 930832981, 3);
 insert into Staff values (720190488, "Antonia Westfallen", 800, 927823713, 3);
-insert into Staff values (348237723, "Annelie Coco", 250, 938237128, 2);
+insert into Staff values (348237723, "Annelie Coco", 250, 938237128, 4);
 insert into Staff values (238283843, "Susana Marques", 600, 968137112, 1);
 insert into Staff values (329034834, "João Azevedo", 1200, 910028381, 1);
 
@@ -209,6 +208,7 @@ insert into Chef values (238924873, 1);
 insert into Chef values (563657335, 1);
 insert into Chef values (720190488, 0);
 insert into Chef values (329034834, 2);
+insert into Chef values (348237723, 0);
 
 -- Values for Cook
 insert into Cook values (923482438, 807238721);
@@ -268,6 +268,9 @@ insert into Dish values (15, "Lombinho Doce", "Batatas com salsa criolla e alcap
 insert into Dish values (16, "Lombinho de Mel", "Lombinho de Porco assado lentamente com mel, acompanhado com puré de pêra", 30.00, 1, 329034834);
 insert into Dish values (17, "Salada Rosada", "Salada de vagem com tartare de tomate", 8.50, 4, 563657335);
 insert into Dish values (18, "Risoto de Cogumelos", "Risoto de Cogumelos assados com salsa e arroz", 19.00, 2, 193473647);
+insert into Dish values (19, "Patas de Lagosta", "Patas de Lagosta fresca condimentadas com molho cocktail", 10.00, 4, 348237723);
+insert into Dish values (20, "Amuse-bouche de Polvo", "Polvo com molho verde de cebolada", 7.00, 4, 348237723);
+
 
 -- Values for Ingredients
 insert into Ingredient values (1, "Pescada");
@@ -329,6 +332,9 @@ insert into Contains values (18, 12);
 insert into Contains values (18, 15);
 insert into Contains values (17, 2);
 insert into Contains values (17, 12);
+insert into Contains values (19, 26);
+insert into Contains values (20, 11);
+insert into Contains values (20, 8);
 
 
 -- Values for Responsible
@@ -386,7 +392,10 @@ insert into OrderDish values (17, 17);
 insert into OrderDish values (16, 18);
 insert into OrderDish values (15, 1);
 insert into OrderDish values (14, 14);
-insert into OrderDish values (13, 13);
+insert into OrderDish values (13, 20);
+insert into OrderDish values (21, 19);
+insert into OrderDish values (22, 20);
+insert into OrderDish values (23, 18);
 
 -- Values for Allergy
 insert into Allergy values (234801012, 20);
