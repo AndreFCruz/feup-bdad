@@ -110,7 +110,7 @@ INSERT INTO ROrder VALUES (19, '2017-04-02', '20:05', 15, 4, 234763472, NULL);
 INSERT INTO ROrder VALUES (20, '2017-04-02', '21:05', 13, 4, 234862398, NULL);
 INSERT INTO ROrder VALUES (21, '2017-04-04', '20:05', 13, 4, 234862398, NULL);
 INSERT INTO ROrder VALUES (22, '2017-04-04', '21:00', 13, 4, 234862398, NULL);
-INSERT INTO ROrder VALUES (23, '2017-04-05', '12:17', 17, 4, 234801012, NULL);
+INSERT INTO ROrder VALUES (23, '2017-04-04', '21:07', 17, 4, 234801012, NULL);
 
 -- Values for Restaurant Transactions
 insert into RTransaction values (1, 80.45, '2017-02-17', '20:03', 823471623);
@@ -157,6 +157,8 @@ update ROrder set RTransaction = 18 where ID = 18;
 update ROrder set RTransaction = 19 where ID = 19;
 update ROrder set RTransaction = 20 where ID = 20;
 update ROrder set RTransaction = 21 where ID = 21;
+update ROrder set RTransaction = 21 where ID = 22;
+update ROrder set RTransaction = 21 where ID = 23;
 
 
 -- Values for Staff
