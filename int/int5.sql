@@ -10,13 +10,7 @@ BEGIN TRANSACTION;
 
 SELECT DISTINCT Staff.Name AS StaffName,
                 Dish.Name AS DishName
-  FROM Specialty,
-       Category,
-       Staff,
-       Dish
- WHERE Specialty.Category = Category.ID AND 
-       Specialty.Cook = Staff.FiscalNum AND 
-       Dish.Category = Specialty.Category
+  FROM (Category JOIN (Dish NATURAL JOIN Specialty) T1 ON T1.Category = Category.ID) T2 JOIN Staff ON T2.Cook = Staff.FiscalNum
  ORDER BY Staff.Name;
 
 COMMIT TRANSACTION;

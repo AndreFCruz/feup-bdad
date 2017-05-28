@@ -6,25 +6,13 @@
 
 BEGIN TRANSACTION;
 
--- Interrogation: Most Common table for client
-SELECT Name,
-       TableID,
-       Restaurant,
-       MAX(cnt) AS Frequency
-  FROM (
-           SELECT Client.Name AS Name,
-                  ROrder.TableID AS TableID,
-                  ROrder.Restaurant AS Restaurant,
-                  COUNT( * ) AS cnt
-             FROM ROrder,
-                  RTable,
-                  Client
-            WHERE ROrder.TableID = RTable.ID AND 
-                  ROrder.Restaurant = RTable.Restaurant AND 
-                  ROrder.Client = Client.FiscalNum
-            GROUP BY Client.Name,
-                     ROrder.TableID
-       )
- GROUP BY Name;
+-- Interrogation: Union of all the people that is related to the Restaurant (Staff + Clients)
+SELECT Client.Name AS Name,
+       Client.FiscalNum AS FiscalNum
+  FROM Client
+UNION
+SELECT Staff.Name AS Name,
+       Staff.FiscalNum AS FiscalNum
+  FROM Staff;
 
 COMMIT TRANSACTION;
